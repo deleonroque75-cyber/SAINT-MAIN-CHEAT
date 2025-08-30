@@ -1,0 +1,176 @@
+-- 🔥 SAINT MAIN CHEAT FINAL BUILD
+-- Key System + Multi Tabs
+-- Made for Delta Mobile
+
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "SAINT MAIN CHEAT",
+    LoadingTitle = "SAINT",
+    LoadingSubtitle = "ISA KANG TANGA",
+    ConfigurationSaving = {
+       Enabled = true,
+       FolderName = "SaintMain",
+       FileName = "SaintCFG"
+    },
+    KeySystem = true,
+    KeySettings = {
+       Title = "SAINT-ACE KEY SYSTEM",
+       Subtitle = "Enter the Key",
+       Note = "Type the key: SAINT-ACE",
+       FileName = "SaintKeySave",
+       SaveKey = true,
+       GrabKeyFromSite = false,
+       Key = {"SAINT-ACE"}
+    }
+})
+
+-- 🏠 TAB 1: GENERAL EXPLOITS
+local General = Window:CreateTab("General Exploits", 4483362458)
+
+General:CreateButton({Name="Remote Spy", Callback=function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/BDhSQqUU"))()
+end})
+
+General:CreateButton({Name="Music Exploit", Callback=function()
+    local sound = Instance.new("Sound", workspace)
+    sound.SoundId = "rbxassetid://1843521233"
+    sound.Volume = 5
+    sound.Looped = true
+    sound:Play()
+end})
+
+General:CreateButton({Name="Sound Lag", Callback=function()
+    while true do
+        local s = Instance.new("Sound",workspace)
+        s.SoundId = "rbxassetid://1843521233"
+        s:Play()
+    end
+end})
+
+General:CreateButton({Name="Bring Parts", Callback=function()
+    for _,p in pairs(workspace:GetDescendants()) do
+        if p:IsA("BasePart") and p.Anchored == false then
+            p.Position = Player.Character.HumanoidRootPart.Position
+        end
+    end
+end})
+
+General:CreateButton({Name="ESP", Callback=function()
+    for _,v in pairs(game.Players:GetPlayers()) do
+        if v.Character and not v.Character:FindFirstChild("Highlight") then
+            local h = Instance.new("Highlight", v.Character)
+            h.FillColor = Color3.fromRGB(255,0,0)
+        end
+    end
+end})
+
+General:CreateButton({Name="Boost FPS", Callback=function()
+    for _,v in pairs(workspace:GetDescendants()) do
+        if v:IsA("Part") or v:IsA("MeshPart") then v.Material = Enum.Material.SmoothPlastic end
+    end
+    settings().Rendering.QualityLevel = Enum.QualityLevel.Level01
+end})
+
+General:CreateButton({Name="Infinite Yield", Callback=function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+end})
+
+General:CreateButton({Name="Admin Command", Callback=function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/Caniwq2N"))()
+end})
+
+General:CreateButton({Name="Backdoor Scanner", Callback=function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/BDhSQqUU"))()
+end})
+
+General:CreateButton({Name="Drop Cash", Callback=function()
+    print("Drop Cash feature placeholder")
+end})
+
+General:CreateButton({Name="Auto Loot [New]", Callback=function()
+    print("Auto Loot system activated")
+end})
+
+-- 💰 TAB 2: DUPLICATION TOOLS
+local Dupe = Window:CreateTab("Duplication Tools", 4483362458)
+
+Dupe:CreateButton({Name="Gun Shop", Callback=function()
+    local GunUI = Instance.new("ScreenGui")
+    GunUI.Parent = Player:WaitForChild("PlayerGui")
+
+    local Frame = Instance.new("Frame")
+    Frame.Size = UDim2.new(0, 300, 0, 250)
+    Frame.Position = UDim2.new(0.5, -150, 0.5, -125)
+    Frame.BackgroundColor3 = Color3.fromRGB(50,50,50)
+    Frame.Active = true
+    Frame.Draggable = true
+    Frame.Parent = GunUI
+
+    local Title = Instance.new("TextLabel")
+    Title.Size = UDim2.new(0, 280, 0, 30)
+    Title.Position = UDim2.new(0, 10, 0, 10)
+    Title.Text = "GUN SHOP"
+    Title.TextScaled = true
+    Title.BackgroundTransparency = 1
+    Title.TextColor3 = Color3.fromRGB(255,255,255)
+    Title.Parent = Frame
+
+    local GunBox = Instance.new("TextBox")
+    GunBox.PlaceholderText = "Enter Gun Name (Silenced Pistol, HK416, GLOCK-19, GLOCK-17, AK47)"
+    GunBox.Size = UDim2.new(0, 280, 0, 40)
+    GunBox.Position = UDim2.new(0, 10, 0, 50)
+    GunBox.Parent = Frame
+
+    local AmountBox = Instance.new("TextBox")
+    AmountBox.PlaceholderText = "Enter Amount"
+    AmountBox.Size = UDim2.new(0, 280, 0, 40)
+    AmountBox.Position = UDim2.new(0, 10, 0, 100)
+    AmountBox.Parent = Frame
+
+    local SpawnButton = Instance.new("TextButton")
+    SpawnButton.Text = "SPAWN"
+    SpawnButton.Size = UDim2.new(0, 280, 0, 50)
+    SpawnButton.Position = UDim2.new(0, 10, 0, 150)
+    SpawnButton.BackgroundColor3 = Color3.fromRGB(0,170,255)
+    SpawnButton.Parent = Frame
+
+    local AvailableGuns = {"Silenced Pistol","HK416","GLOCK-19","GLOCK-17","AK47"}
+
+    SpawnButton.MouseButton1Click:Connect(function()
+        local gunName = GunBox.Text
+        local amount = tonumber(AmountBox.Text) or 1
+        if table.find(AvailableGuns, gunName) then
+            print("Spawning", amount, gunName)
+            -- Ilagay ang FE gun spawn logic dito
+        else
+            print("Gun not available:", gunName)
+        end
+    end)
+end})
+
+Dupe:CreateButton({Name="BM Storage", Callback=function() print("BM Storage open") end})
+Dupe:CreateButton({Name="Purchase Event", Callback=function() print("Purchase Event") end})
+Dupe:CreateButton({Name="Nexopolis", Callback=function() print("Nexopolis") end})
+Dupe:CreateButton({Name="Buhay Barangay", Callback=function() print("Buhay Barangay") end})
+Dupe:CreateButton({Name="Downtown Pinas", Callback=function() print("Downtown Pinas") end})
+Dupe:CreateButton({Name="Stim RP", Callback=function() print("Stim RP") end})
+Dupe:CreateButton({Name="Paraiso City RP", Callback=function() print("Paraiso City RP") end})
+Dupe:CreateButton({Name="Kalye Onse RP", Callback=function() print("Kalye Onse RP") end})
+Dupe:CreateButton({Name="Auto Farm Money/Gun [New]", Callback=function()
+    print("Auto Farm triggered")
+end})
+
+-- ⚙️ TAB 3: SNTS EXECUTOR
+local Exec = Window:CreateTab("SNTS Executor", 4483362458)
+
+Exec:CreateButton({Name="Open Executor", Callback=function()
+    Rayfield:Notify({
+        Title = "Executor",
+        Content = "Dito ka maglalagay ng custom script",
+        Duration = 6
+    })
+end})
